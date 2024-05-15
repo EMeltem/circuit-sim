@@ -10,12 +10,12 @@ public class CableCreator : MonoBehaviour
 
     private void Awake()
     {
-        GameSignals.OnClick += CreateCable;
+        GameSignals.OnDraw += CreateCable;
     }
 
     private void OnDestroy()
     {
-        GameSignals.OnClick -= CreateCable;
+        GameSignals.OnDraw -= CreateCable;
     }
 
     public List<Vector3> cablePositions = new List<Vector3>();
