@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c722ed25c48530147b719dd030a07ac4, type: 3}
-  m_Name: Blue
+  m_Name: Silver
   m_EditorClassIdentifier: 
-  Name: blue
-  Material: {fileID: 2100000, guid: cab23011dbcf25a4a93142a97e2700b0, type: 2}
-  Value: 6
+  Type: 2
+  Name: black
+  Material: {fileID: 2100000, guid: 84e427fee76e7a8489d3d8feef996bd4, type: 2}
+  Value: 4

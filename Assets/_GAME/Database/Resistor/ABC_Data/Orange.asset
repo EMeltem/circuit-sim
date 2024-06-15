@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c722ed25c48530147b719dd030a07ac4, type: 3}
   m_Name: Orange
   m_EditorClassIdentifier: 
+  Type: 1
   Name: orange
   Material: {fileID: 2100000, guid: 738e51bc5da09444f81aa89031ce89c9, type: 2}
   Value: 3

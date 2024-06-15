@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c722ed25c48530147b719dd030a07ac4, type: 3}
-  m_Name: Purple
+  m_Name: Red
   m_EditorClassIdentifier: 
-  Name: purple
-  Material: {fileID: 2100000, guid: eec03c66ff773664ab3538a9b7761b86, type: 2}
-  Value: 7
+  Type: 1
+  Name: red
+  Material: {fileID: 2100000, guid: eb2fbc38493baaf4c850bb16fae09b99, type: 2}
+  Value: 2
