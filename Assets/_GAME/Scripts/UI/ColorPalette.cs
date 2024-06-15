@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Project.Resistors;
 using UnityEngine;
 
 public class ColorPalette : MonoBehaviour

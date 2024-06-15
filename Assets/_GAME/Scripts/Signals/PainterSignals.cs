@@ -1,8 +1,13 @@
 using System;
+using Project.Resistors;
 using UnityEngine;
 using UnityEngine.Events;
 
-public static class PainterSignals
+namespace Project.Signals
 {
-    public static UnityAction<ResistorColor> OnBrushSelected = delegate { };
+    public static class PainterSignals
+    {
+        public static UnityAction<ResistorColor> OnBrushSelected = delegate { };
+        public static Func<ResistorColor> GetBrushData = delegate { return null; };
+    }
 }

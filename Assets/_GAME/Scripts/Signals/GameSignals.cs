@@ -1,9 +1,12 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class GameSignals
+namespace Project.Signals
 {
-    public static UnityAction<Vector3, ConnectionPoint> OnDrawStart = delegate { };
-    public static UnityAction<Vector3, ConnectionPoint> OnDrawEnd = delegate { };
-    public static UnityAction<Vector3> OnDraw = delegate { };
+    public class GameSignals
+    {
+        public static UnityAction<Vector3, ConnectionPoint> OnDrawStart = delegate { };
+        public static UnityAction<Vector3, ConnectionPoint> OnDrawEnd = delegate { };
+        public static UnityAction<Vector3> OnDraw = delegate { };
+    }
 }

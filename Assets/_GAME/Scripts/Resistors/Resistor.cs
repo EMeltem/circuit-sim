@@ -1,6 +1,10 @@
 using UnityEngine;
 
-public class Resistor : MonoBehaviour
-{
 
+namespace Project.Resistors
+{
+    public class Resistor : MonoBehaviour
+    {
+
+    }
 }

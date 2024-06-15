@@ -1,5 +1,9 @@
+using System;
+using Project.Resistors;
+using Project.Signals;
 using UnityEngine;
 using UnityEngine.UI;
+
 namespace Project.Painter
 {
     public class Brush : MonoBehaviour
@@ -8,21 +12,29 @@ namespace Project.Painter
         private void Awake()
         {
             PainterSignals.OnBrushSelected += OnBrushSelected;
+            PainterSignals.GetBrushData += GetBrushData;
         }
 
         private void OnDestroy()
         {
             PainterSignals.OnBrushSelected -= OnBrushSelected;
+            PainterSignals.GetBrushData -= GetBrushData;
         }
 
+        private ResistorColor GetBrushData()
+        {
+            return m_ResistorColorData;
+        }
+
+        private ResistorColor m_ResistorColorData;
         private void OnBrushSelected(ResistorColor data)
         {
+            m_ResistorColorData = data;
             m_Image.color = data.Material.color;
         }
 
         private void Update()
         {
-            // Set the image position to the mouse position
             m_Image.transform.position = Input.mousePosition;
         }
     }

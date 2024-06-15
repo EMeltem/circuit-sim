@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
-using System.Collections.Generic;
+using Project.Resistors;
+using Project.Signals;
 
 public class ColorPicker : MonoBehaviour
 {

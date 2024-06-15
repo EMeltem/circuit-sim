@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Project.Signals;
 using UnityEngine;
 
 public class CableCreator : MonoBehaviour
