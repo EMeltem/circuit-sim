@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using System.Collections.Generic;
 
 public class ColorPicker : MonoBehaviour
 {
@@ -20,7 +21,18 @@ public class ColorPicker : MonoBehaviour
 
     public void OnClick()
     {
+        ClickAnimation();
+        SendBurshsignal();
+    }
+
+    private void ClickAnimation()
+    {
         transform.DOScale(Vector3.one * 0.9f, 0.15f)
             .OnComplete(() => transform.DOScale(Vector3.one, 0.15f));
+    }
+
+    private void SendBurshsignal()
+    {
+        PainterSignals.OnBrushSelected?.Invoke(ColorData);
     }
 }
