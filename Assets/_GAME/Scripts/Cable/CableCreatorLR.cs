@@ -45,7 +45,6 @@ public class CableCreatorLR : MonoBehaviour
             m_IsCreating = false;
             return;
         }
-        // TODO: check is cable is valid then save it
     }
 
 
