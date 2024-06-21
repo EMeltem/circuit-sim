@@ -6,10 +6,10 @@ namespace Project.Resistors
     [CreateAssetMenu(fileName = "ResistorData", menuName = "Database/ResistorData")]
     public class ResistorColor : ScriptableObject
     {
-        public ResistorRingType Type;
+        public ResistorRingType AllowedTypes;
         public string Name;
         public Material Material;
-        public int Value;
-        public double Multiplier => Math.Pow(10, Value);
+        public float Value;
+        public float ToleranceValue;
     }
 }

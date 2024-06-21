@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_GAME/Scenes/Navigator/LevelSelection.unity
+    guid: b713907e442d2224a9e73617e4b96984
+  - enabled: 1
+    path: Assets/_GAME/Scenes/OhmCalc.unity
+    guid: 0f82e399571c9184ab31fe6d3820b5d3
   m_configObjects: {}

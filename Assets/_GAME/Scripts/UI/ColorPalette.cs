@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ColorPalette : MonoBehaviour
 {
-    public List<ResistorColor> ColorData;
+    public List<ResistorColor> AbcData;
+    public List<ResistorColor> TData;
     public Transform Container;
     [Header("Prefabs")]
     public ColorPicker ColorPickerPrefab;
@@ -12,16 +13,13 @@ public class ColorPalette : MonoBehaviour
 
     private void Start()
     {
-        var _abcData = ColorData.FindAll(x => x.Type == ResistorRingType.ABC);
-        var _tData = ColorData.FindAll(x => x.Type == ResistorRingType.T);
-
-        foreach (var color in _abcData)
+        foreach (var color in AbcData)
         {
             var picker = Instantiate(ColorPickerPrefab, Container);
             picker.Init(color);
         }
         Instantiate(m_Seperator, Container);
-        foreach (var color in _tData)
+        foreach (var color in TData)
         {
             var picker = Instantiate(ColorPickerPrefab, Container);
             picker.Init(color);

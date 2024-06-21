@@ -7,8 +7,8 @@ namespace Project.Resistors
 {
     public class ResistorRing : MonoBehaviour
     {
-        [SerializeField] private ResistorRingType m_Type;
-        [SerializeField] private ResistorColor m_ResistorColorData;
+        public ResistorRingType Type;
+        public ResistorColor ResistorColorData;
         [SerializeField] private MeshRenderer m_MeshRenderer;
 
         private Outline m_Outline;
@@ -24,11 +24,12 @@ namespace Project.Resistors
         }
 
         private bool m_IsListening = false;
+        private bool m_TypeIsValid;
         private void OnBrushSelected(ResistorColor data)
         {
-            var _selectState = data.Type == m_Type;
-            m_Outline.enabled = _selectState;
-            m_IsListening = _selectState;
+            m_TypeIsValid = (data.AllowedTypes & Type) == Type;
+            m_Outline.enabled = true;
+            m_IsListening = true;
         }
 
         private void Start()
@@ -40,19 +41,18 @@ namespace Project.Resistors
         private void OnMouseDown()
         {
             if (!m_IsListening) return;
-            m_ResistorColorData = PainterSignals.GetBrushData?.Invoke();
-            m_MeshRenderer.material = m_ResistorColorData.Material;
+            if (!m_TypeIsValid) return;
+            ResistorColorData = PainterSignals.GetBrushData?.Invoke();
+            m_MeshRenderer.material = ResistorColorData.Material;
         }
 
-        private ResistorColor m_OnEnterData;
         private Tween m_ScaleTween;
         private void OnMouseEnter()
         {
             if (!m_IsListening) return;
             KillTweenIfIsAlive();
             m_ScaleTween = transform.DOScale(Vector3.one * 1.2f, 0.15f);
-            m_OnEnterData = PainterSignals.GetBrushData?.Invoke();
-            m_Outline.OutlineColor = m_OnEnterData.Type == m_Type ? Color.green : Color.red;
+            m_Outline.OutlineColor = m_TypeIsValid ? Color.green : Color.red;
         }
 
         private void OnMouseExit()

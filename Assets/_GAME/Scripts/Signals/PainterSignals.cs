@@ -1,6 +1,5 @@
 using System;
 using Project.Resistors;
-using UnityEngine;
 using UnityEngine.Events;
 
 namespace Project.Signals
