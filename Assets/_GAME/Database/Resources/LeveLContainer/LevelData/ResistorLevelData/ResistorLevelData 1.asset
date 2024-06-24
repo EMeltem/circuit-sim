@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28f4fda2ef065c141a9f4d5915cf9059, type: 3}
   m_Name: ResistorLevelData 1
   m_EditorClassIdentifier: 
-  m_QuestDescription: "1 - \"{0}\" \u03A9 ve\" \xB1{1}%\" toleransl\u0131 diren\xE7
-    de\u011Ferleri i\xE7in do\u011Fru renkleri yerle\u015Ftirin."
+  m_QuestDescription: "1 - Diren\xE7 renk tablosunu incele! (Opsiyonel)\n\n2 - \"{0}\"
+    \u03A9 ve \"\xB1{1}%\" toleransl\u0131 diren\xE7 de\u011Ferleri i\xE7in do\u011Fru
+    renkleri yerle\u015Ftirin."
   RngEnabled: 1
   Value: 0
   Tolerance: 0

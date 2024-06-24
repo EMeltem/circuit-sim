@@ -11,5 +11,7 @@ namespace Project.Signals
 
         public static UnityAction<LevelData> OnLevelStarted = delegate { };
         public static UnityAction<LevelData, bool> OnLevelCompleted = delegate { };
+
+        public static UnityAction<int> OnFocusStateChanged = delegate { }; // 0 = Original, 1 = Focused
     }
 }

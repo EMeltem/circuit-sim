@@ -253,7 +253,8 @@ namespace Project.Utilities
 
         public static (double resistance, double tolerance) CalculateResistance(ResistorColor a, ResistorColor b, ResistorColor c, ResistorColor t)
         {
-            var _resistance = (a.Value * 10 + b.Value) * (int)Math.Pow(10, c.Value);
+            // Debug.Log($"A: {a.Value}, B: {b.Value}, C: {c.Value}, T: {t.ToleranceValue} -- AB: {(a.Value * 10 + b.Value)} -- MathfPow: {Mathf.Pow(10, c.Value)}");
+            var _resistance = (a.Value * 10 + b.Value) * (double)Math.Pow(10, c.Value);
             var _tolerance = t.ToleranceValue;
 
             return (_resistance, _tolerance);

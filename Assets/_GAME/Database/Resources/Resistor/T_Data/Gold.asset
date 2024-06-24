@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c722ed25c48530147b719dd030a07ac4, type: 3}
   m_Name: Gold
   m_EditorClassIdentifier: 
-  AllowedTypes: 8
+  AllowedTypes: 12
   Name: gold
   Material: {fileID: 2100000, guid: 2fa3b13107b548440941abb426ff5fa3, type: 2}
-  Value: 5
+  Value: -1
   ToleranceValue: 5

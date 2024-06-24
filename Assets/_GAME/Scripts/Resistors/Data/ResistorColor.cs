@@ -9,7 +9,7 @@ namespace Project.Resistors
         public ResistorRingType AllowedTypes;
         public string Name;
         public Material Material;
-        public double Value;
-        public double ToleranceValue;
+        public long Value;
+        public long ToleranceValue;
     }
 }
