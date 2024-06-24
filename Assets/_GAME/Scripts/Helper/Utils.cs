@@ -242,7 +242,7 @@ namespace Project.Utilities
             return Mathf.Log10(volume) * 20;
         }
 
-        public static (float resistor, float tolerance) CalculateResistance(List<ResistorColor> resistorColorData)
+        public static (double resistor, double tolerance) CalculateResistance(List<ResistorColor> resistorColorData)
         {
             var A = resistorColorData.Find(ring => (ring.AllowedTypes & ResistorRingType.A) == ResistorRingType.A);
             var B = resistorColorData.Find(ring => (ring.AllowedTypes & ResistorRingType.B) == ResistorRingType.B);
@@ -251,7 +251,7 @@ namespace Project.Utilities
             return CalculateResistance(A, B, C, T);
         }
 
-        public static (float resistance, float tolerance) CalculateResistance(ResistorColor a, ResistorColor b, ResistorColor c, ResistorColor t)
+        public static (double resistance, double tolerance) CalculateResistance(ResistorColor a, ResistorColor b, ResistorColor c, ResistorColor t)
         {
             var _resistance = (a.Value * 10 + b.Value) * (int)Math.Pow(10, c.Value);
             var _tolerance = t.ToleranceValue;
@@ -260,7 +260,7 @@ namespace Project.Utilities
         }
 
 
-        public static string SimplfyNumber(float value)
+        public static string SimplfyNumber(double value)
         {
             if (value < 1000)
             {

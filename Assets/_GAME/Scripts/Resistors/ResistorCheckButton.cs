@@ -2,7 +2,6 @@ using System;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using Project.Resistors;
-using Project.Signals;
 using Project.Utilities;
 using TMPro;
 using UnityEngine;
@@ -29,7 +28,7 @@ public class ResistorCheckButton : MonoBehaviour
         m_IsClickValid = false;
     }
 
-    private async void CheckIsCorrect(float resistor, float tolerance)
+    private async void CheckIsCorrect(double resistor, double tolerance)
     {
         var levelData = LevelLoader.CurrentLevelData as ResistorLevelData;
         var (targetResistor, targetTolerance) = levelData.ValueTolerancePair;
@@ -80,7 +79,7 @@ public class ResistorCheckButton : MonoBehaviour
             .OnComplete(() => m_CheckButton.image.DOColor(Color.white, 0.5f));
     }
 
-    private void UpdateText(float resistor, float tolerance)
+    private void UpdateText(double resistor, double tolerance)
     {
         m_OutputText.text = $"{Utils.SimplfyNumber(resistor)} {m_Unit} ± {tolerance}%";
     }

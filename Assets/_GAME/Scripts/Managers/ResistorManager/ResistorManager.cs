@@ -31,8 +31,9 @@ public class ResistorManager
 
     public static ResistorColor GetRandomDataWithFlag(ResistorRingType type)
     {
-        var _values = ResistorColorDataDictionary.Values.All(data => data.AllowedTypes.HasFlag(type));
-        var _rng = Random.Range(0, ResistorColorDataDictionary.Count);
-        return ResistorColorDataDictionary.Values.ElementAt(_rng);
+        var _valueList = ResistorColorDataDictionary.Values.ToList();
+        var _validValues = _valueList.Where(data => (data.AllowedTypes & type) == type).ToList();
+        var _randomIndex = Random.Range(0, _validValues.Count);
+        return _validValues[_randomIndex];
     }
 }

@@ -26,7 +26,7 @@ namespace Project.Resistors
             Cursor.visible = false;
         }
 
-        public (float resistor, float tolerance) CalculateResistance()
+        public (double resistor, double tolerance) CalculateResistance()
         {
             var A = m_ResistorRings.Find(ring => ring.Type == ResistorRingType.A).ResistorColorData;
             var B = m_ResistorRings.Find(ring => ring.Type == ResistorRingType.B).ResistorColorData;

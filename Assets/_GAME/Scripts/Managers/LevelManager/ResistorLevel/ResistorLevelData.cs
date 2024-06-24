@@ -7,16 +7,16 @@ using UnityEngine;
 public class ResistorLevelData : LevelData
 {
     public bool RngEnabled;
-    [HideIf("RngEnabled")] public float Value;
-    [HideIf("RngEnabled")] public int Tolerance;
-    public (float resistor, float tolerance) ValueTolerancePair;
+    [HideIf("RngEnabled")] public double Value;
+    [HideIf("RngEnabled")] public double Tolerance;
+    public (double resistor, double tolerance) ValueTolerancePair;
 
     public override void Initialize()
     {
         ValueTolerancePair = CacheValue();
     }
 
-    private (float resistor, float tolerance) CacheValue()
+    private (double resistor, double tolerance) CacheValue()
     {
         if (!RngEnabled) return (Value, Tolerance);
 

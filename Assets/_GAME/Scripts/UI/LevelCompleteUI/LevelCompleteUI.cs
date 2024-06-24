@@ -7,8 +7,6 @@ using Project.Signals;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.SceneManagement;
-using log4net.Core;
 
 public class LevelCompleteUI : MonoBehaviour
 {
