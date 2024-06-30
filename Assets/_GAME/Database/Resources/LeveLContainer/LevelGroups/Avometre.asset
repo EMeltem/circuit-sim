@@ -12,5 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44aa5ee3673fb4f4fb6eaac6709c3db0, type: 3}
   m_Name: Avometre
   m_EditorClassIdentifier: 
-  SceneName: OhmCalc
-  Levels: []
+  SceneName: AvoMeter
+  Levels:
+  - {fileID: 11400000, guid: cf1942d9c90f0db44811fd00bbfc3f3b, type: 2}
+  - {fileID: 11400000, guid: 6247a60f0e958bb40b1e9e8dc6aee0aa, type: 2}
+  - {fileID: 11400000, guid: 242118033468a584a9349a89b6cb7510, type: 2}
+  - {fileID: 11400000, guid: 8b31eaaa608f7734dbe556c6748dd950, type: 2}
+  - {fileID: 11400000, guid: 3b2132fe9590b5043b6e26691e0a0c43, type: 2}

@@ -39,9 +39,9 @@ public class LevelLoader
         CurrentLevelID = $"GI_{groupIndex}_LI_{levelIndex}";
         CurrentLevelData = LevelContainer.GetLevelData(groupIndex, levelIndex);
         var _levelGroup = LevelContainer.GetCurrentGroup(groupIndex);
-        CurrentLevelData.Initialize();
         await SceneManager.LoadSceneAsync(_levelGroup.SceneName);
         await UniTask.DelayFrame(10);
+        CurrentLevelData.Initialize();
         GameSignals.OnLevelStarted.Invoke(CurrentLevelData);
     }
 

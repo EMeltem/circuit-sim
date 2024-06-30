@@ -15,7 +15,7 @@ namespace Project.Resistors
         T = 1 << 3
     }
 
-    public class Resistor : MonoBehaviour
+    public class Resistor : ElectrictyElement
     {
         public static Resistor Instance { get; private set; }
         [SerializeField] private List<ResistorRing> m_ResistorRings;
@@ -26,7 +26,7 @@ namespace Project.Resistors
             Cursor.visible = false;
         }
 
-        public (double resistor, double tolerance) CalculateResistance()
+        public override (double resistor, double tolerance) CalculateResistance()
         {
             var A = m_ResistorRings.Find(ring => ring.Type == ResistorRingType.A).ResistorColorData;
             var B = m_ResistorRings.Find(ring => ring.Type == ResistorRingType.B).ResistorColorData;

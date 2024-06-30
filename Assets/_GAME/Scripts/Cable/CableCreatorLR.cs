@@ -5,15 +5,16 @@ using UnityEngine;
 
 public class CableCreatorLR : MonoBehaviour
 {
-    [SerializeField] private LineRenderer m_Drawer;
-    [SerializeField] private float m_Width = 0.1f;
-    [SerializeField] private float m_WidthMultiplier = 0.1f;
+    [SerializeField] private Cable m_Cable;
+    public static CableCreatorLR Instance { get; private set; }
+    public bool Active;
 
     private void Awake()
     {
         GameSignals.OnDrawStart += OnCreatingStart;
         GameSignals.OnDraw += CreateCable;
         GameSignals.OnDrawEnd += OnCreatingEnd;
+        Instance = this;
     }
 
     private void OnDestroy()
@@ -23,46 +24,61 @@ public class CableCreatorLR : MonoBehaviour
         GameSignals.OnDrawEnd -= OnCreatingEnd;
     }
 
-    protected bool m_IsCreating = false;
-    private void OnCreatingStart(Vector3 input, ConnectionPoint connectionPoint)
+    private bool m_IsDrawing;
+    private void OnCreatingStart(Vector3 input, ConnectionPoint cp)
     {
-        if (connectionPoint == null)
+        if (!Active) return;        
+        if (cp == null)
         {
             Debug.LogWarning("Connection point is null");
             return;
         }
-        m_IsCreating = true;
+        if (!cp.Available) return;
+        m_IsDrawing = true;
         cablePositions.Clear();
         CreateCable(input);
+        m_Cable.StartPoint = cp;
+        cp.AddElement(m_Cable);
     }
 
-    private void OnCreatingEnd(Vector3 input, ConnectionPoint connectionPoint)
+    public List<Cable> Cables = new();
+    private void OnCreatingEnd(Vector3 input, ConnectionPoint cp)
     {
-        if (connectionPoint == null)
+        if (!Active) return;
+        m_IsDrawing = false;
+        if (cp == null)
         {
-            Debug.LogWarning("Connection point is null");
-            cablePositions.Clear();
-            m_Drawer.positionCount = 0;
-            m_IsCreating = false;
+            DiscardCable();
             return;
         }
+        if (!cp.Available)
+        {
+            DiscardCable();
+            return;
+        }
+        CreateInstance(cp);
     }
 
+    private void DiscardCable()
+    {
+        Debug.LogWarning("Connection point is null");
+        m_Cable.Clear();
+    }
+
+    private void CreateInstance(ConnectionPoint cp)
+    {
+        cp.AddElement(m_Cable);
+        m_Cable.EndPoint = cp;
+        Cables.Add(m_Cable);
+        m_Cable = Instantiate(m_Cable, m_Cable.transform.parent);
+        m_Cable.Clear();
+    }
 
     public List<Vector3> cablePositions = new();
     private void CreateCable(Vector3 input)
     {
-        if (!m_IsCreating) return;
-        if (cablePositions.Contains(input)) return;
-        cablePositions.Add(input);
-        m_Drawer.positionCount = cablePositions.Count;
-        m_Drawer.SetPositions(cablePositions.ToArray());
-        m_Drawer.widthCurve = GetCurve();
-        m_Drawer.widthMultiplier = m_Width;
-    }
-
-    private AnimationCurve GetCurve()
-    {
-        return new AnimationCurve(new Keyframe(0, m_WidthMultiplier), new Keyframe(1, m_WidthMultiplier));
+        if(!m_IsDrawing) return;
+        if (!Active) return;
+        m_Cable.Create(input);
     }
 }

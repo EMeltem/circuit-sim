@@ -1,4 +1,3 @@
-using System;
 using DG.Tweening;
 using Project.Signals;
 using UnityEngine;
@@ -10,7 +9,6 @@ namespace Project.Resistors
         public ResistorRingType Type;
         public ResistorColor ResistorColorData;
         [SerializeField] private MeshRenderer m_MeshRenderer;
-
         private Outline m_Outline;
 
         private void Awake()
@@ -21,6 +19,13 @@ namespace Project.Resistors
         private void OnDestroy()
         {
             PainterSignals.OnBrushSelected -= OnBrushSelected;
+        }
+
+        [SerializeField] private bool m_AutoLoadOnStart = false;
+        private void LoadData()
+        {
+            if (!m_AutoLoadOnStart) return;
+            m_MeshRenderer.material = ResistorColorData.Material;
         }
 
         private bool m_IsListening = false;
@@ -36,6 +41,7 @@ namespace Project.Resistors
         {
             m_Outline = GetComponent<Outline>();
             m_Outline.enabled = false;
+            LoadData();
         }
 
         private void OnMouseDown()
