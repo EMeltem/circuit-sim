@@ -26,6 +26,12 @@ namespace Project.Resistors
             Cursor.visible = false;
         }
 
+        public bool Spawned { get; private set; }
+        public void OnSpawn()
+        {
+            Spawned = true;
+        }
+
         public override (double resistor, double tolerance) CalculateResistance()
         {
             var A = m_ResistorRings.Find(ring => ring.Type == ResistorRingType.A).ResistorColorData;
@@ -33,6 +39,41 @@ namespace Project.Resistors
             var C = m_ResistorRings.Find(ring => ring.Type == ResistorRingType.C).ResistorColorData;
             var T = m_ResistorRings.Find(ring => ring.Type == ResistorRingType.T).ResistorColorData;
             return Utils.CalculateResistance(A, B, C, T);
+        }
+
+        public void DestroyWithConnections()
+        {
+            if (StartPoint != null)
+            {
+                var _garbage = new List<ElectrictyElement>();
+                var _elements = new List<ElectrictyElement>(StartPoint.ElectrictyElements);
+                foreach (var element in _elements)
+                {
+                    if (element == null) continue;
+                    element.EndPoint.ElectrictyElements.Remove(this);
+                    element.StartPoint.ElectrictyElements.Remove(this);
+                    if (element == this) continue;
+                    _garbage.Add(element);
+                }
+                _garbage.ForEach(e => Destroy(e.gameObject));
+            }
+
+            if (EndPoint != null)
+            {
+                var _garbage = new List<ElectrictyElement>();
+                var _elements = new List<ElectrictyElement>(EndPoint.ElectrictyElements);
+                foreach (var element in _elements)
+                {
+                    if (element == null) continue;
+                    element.StartPoint.ElectrictyElements.Remove(this);
+                    element.EndPoint.ElectrictyElements.Remove(this);
+                    if (element == this) continue;
+                    _garbage.Add(element);
+                }
+                _garbage.ForEach(e => Destroy(e.gameObject));
+            }
+
+            Destroy(gameObject);
         }
     }
 }

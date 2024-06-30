@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Project.Signals;
 using TMPro;
 using UnityEngine;
 
@@ -8,6 +9,23 @@ public class PSU : ElectrictyElement
     [SerializeField] private TMP_Text m_AmperageText;
     [SerializeField] private TMP_Text m_VoltageText;
     public float Voltage = 25.0f;
+
+    private void Awake()
+    {
+        GameSignals.OnLevelStarted += OnLevelStarted;
+    }
+
+    private void OnDestroy()
+    {
+        GameSignals.OnLevelStarted -= OnLevelStarted;
+    }
+    
+    private LevelData m_Leveldata;
+    private void OnLevelStarted(LevelData data)
+    {
+        m_Leveldata = data;
+    }
+
     public bool IsOn { get; private set; }
     public void TurnOn()
     {
@@ -30,7 +48,6 @@ public class PSU : ElectrictyElement
 
     public void CheckConnections()
     {
-        Debug.Log("Checking connections");
         if (StartPoint.ElectrictyElements.Count == 0 || EndPoint.ElectrictyElements.Count == 0)
         {
             TurnOff();
@@ -109,6 +126,17 @@ public class PSU : ElectrictyElement
 
         float current = Voltage / totalResistance;
         m_AmperageText.text = $"{current:F2} A";
+        var _questAmperage = ((AvometerLevelData)m_Leveldata).AmperValue;
+        if (Math.Abs(current - _questAmperage) < 0.01f)
+        {
+            CheckButton.Instance.OnCorrect();
+            Debug.Log("Correct amperage value");
+        }
+        else
+        {
+            CheckButton.Instance.OnIncorrect();
+            Debug.Log("Incorrect amperage value");
+        }
         Debug.Log($"Current in the circuit: {current} A");
     }
 
