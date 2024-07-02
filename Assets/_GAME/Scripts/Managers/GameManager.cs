@@ -7,6 +7,9 @@ namespace Project.Managers
 {
     public class GameManager : MonoBehaviour
     {
+        public static bool GameLoaded { get; set; }
+        public static string UserName { get; set; }
+
         private void Start()
         {
             CursorSettings();

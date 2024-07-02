@@ -11,6 +11,16 @@ namespace Project.Managers
         [SerializeField] private TextNotify m_TextPopUpCanvasPrefab;
         [SerializeField] private Canvas m_Canvas;
 
+        private void Awake()
+        {
+            Subscriptions(true);
+        }
+
+        private void OnDestroy()
+        {
+            Subscriptions(false);
+        }
+
         protected void Subscriptions(bool register)
         {
             if (register)

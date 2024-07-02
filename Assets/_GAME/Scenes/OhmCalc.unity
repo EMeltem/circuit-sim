@@ -579,7 +579,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-81936
+  m_Name: pb_Mesh101884
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1345,7 +1345,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh58816
+  m_Name: pb_Mesh39998
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6783,7 +6783,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh58646
+  m_Name: pb_Mesh101824
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7163,6 +7163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1158958664}
+  - component: {fileID: 1158958665}
   m_Layer: 0
   m_Name: ResistorTable
   m_TagString: Untagged
@@ -7188,6 +7189,18 @@ Transform:
   m_Father: {fileID: 936482298}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1158958665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158958663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 691fe1050508f794b879d9891e55b11a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1204422233
 GameObject:
   m_ObjectHideFlags: 0
@@ -12148,7 +12161,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-156342
+  m_Name: pb_Mesh102016
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13518,6 +13531,10 @@ PrefabInstance:
     - target: {fileID: 6221827664521626888, guid: dac2ffda52bb7964e94315b02942c58e, type: 3}
       propertyPath: m_Name
       value: Canvas_ColorPallette
+      objectReference: {fileID: 0}
+    - target: {fileID: 6221827664521626891, guid: dac2ffda52bb7964e94315b02942c58e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6221827664521626892, guid: dac2ffda52bb7964e94315b02942c58e, type: 3}
       propertyPath: m_Pivot.x

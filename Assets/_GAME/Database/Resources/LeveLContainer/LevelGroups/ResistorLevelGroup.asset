@@ -15,17 +15,12 @@ MonoBehaviour:
   SceneName: OhmCalc
   Levels:
   - {fileID: 11400000, guid: 165917da51afdce43b49b4a037bceda6, type: 2}
-  - {fileID: 11400000, guid: 165917da51afdce43b49b4a037bceda6, type: 2}
-  - {fileID: 11400000, guid: 165917da51afdce43b49b4a037bceda6, type: 2}
-  - {fileID: 11400000, guid: 165917da51afdce43b49b4a037bceda6, type: 2}
-  - {fileID: 11400000, guid: 165917da51afdce43b49b4a037bceda6, type: 2}
-  - {fileID: 11400000, guid: 165917da51afdce43b49b4a037bceda6, type: 2}
-  - {fileID: 11400000, guid: 165917da51afdce43b49b4a037bceda6, type: 2}
-  - {fileID: 11400000, guid: 165917da51afdce43b49b4a037bceda6, type: 2}
-  - {fileID: 11400000, guid: 165917da51afdce43b49b4a037bceda6, type: 2}
-  - {fileID: 11400000, guid: 165917da51afdce43b49b4a037bceda6, type: 2}
-  - {fileID: 11400000, guid: 165917da51afdce43b49b4a037bceda6, type: 2}
-  - {fileID: 11400000, guid: 165917da51afdce43b49b4a037bceda6, type: 2}
-  - {fileID: 11400000, guid: 165917da51afdce43b49b4a037bceda6, type: 2}
-  - {fileID: 11400000, guid: 165917da51afdce43b49b4a037bceda6, type: 2}
-  - {fileID: 11400000, guid: 165917da51afdce43b49b4a037bceda6, type: 2}
+  - {fileID: 11400000, guid: fee088804e762b544b33d40f78a645d0, type: 2}
+  - {fileID: 11400000, guid: 88d9c3473cffa7e4a85af88de98fbaa7, type: 2}
+  - {fileID: 11400000, guid: fb788473318558042a3e8daae7fd80c7, type: 2}
+  - {fileID: 11400000, guid: 2e60c1f59e746cf43b4094b5e899f918, type: 2}
+  - {fileID: 11400000, guid: 9345529b950350342a5d55752f26c286, type: 2}
+  - {fileID: 11400000, guid: ae244785ad7956e44b0f4e07d29f9d2d, type: 2}
+  - {fileID: 11400000, guid: f4020c218104480418873f089e909148, type: 2}
+  - {fileID: 11400000, guid: 25bf7d1faa248dc42858479f9b79e48e, type: 2}
+  - {fileID: 11400000, guid: 1bcae8a29dd42f74e8f6df615e39972c, type: 2}

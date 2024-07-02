@@ -10,6 +10,7 @@ public class ResistorLevelData : LevelData
     [HideIf("RngEnabled")] public double Value;
     [HideIf("RngEnabled")] public double Tolerance;
     public (double resistor, double tolerance) ValueTolerancePair;
+    public bool TooltipPaperEnabled;
 
     public override void Initialize()
     {
