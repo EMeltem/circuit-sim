@@ -28,7 +28,6 @@ public class Cable : ElectrictyElement
     private void InteractState(AvometerState state)
     {
         if (Drawer.positionCount <= 2) return;
-        Debug.Log("InteractState");
         if (state == AvometerState.Cutting)
         {
             Drawer.widthMultiplier = m_Width * 1.5f;

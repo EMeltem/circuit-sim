@@ -16,7 +16,7 @@ public class LevelContainer : ScriptableObject
         return LeveLGroups[index];
     }
 
-    public LevelData GetLevelData(int groupIndex, int levelIndex)
+public LevelData GetLevelData(int groupIndex, int levelIndex)
     {
         return LeveLGroups[groupIndex].Levels[levelIndex];
     }

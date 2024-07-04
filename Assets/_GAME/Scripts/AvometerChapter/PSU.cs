@@ -125,7 +125,7 @@ public class PSU : ElectrictyElement
         }
 
         float current = Voltage / totalResistance;
-        m_AmperageText.text = $"{current:F2} A";
+        m_AmperageText.text = $"{current:F3} A";
         var _questAmperage = ((AvometerLevelData)m_Leveldata).AmperValue;
         if (Math.Abs(current - _questAmperage) < 0.01f)
         {

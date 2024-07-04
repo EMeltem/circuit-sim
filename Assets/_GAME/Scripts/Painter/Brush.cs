@@ -1,4 +1,3 @@
-using System;
 using Project.Resistors;
 using Project.Signals;
 using UnityEngine;
